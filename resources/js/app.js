@@ -15,7 +15,7 @@ import { SPFirstFrom } from './pages/SiteParams.js';
 import { setAriaAttributes } from './traits/Aria.js';
 import { forgetPasswordFirstForm, forgetPasswordSecondForm } from './pages/ForgetPassword.js';
 import { registerFirstForm, registerSecondForm } from './pages/Register.js';
-import { manageUserModalTabs } from './modals/user.js';
+import { manageUserModalTabs } from './modals/User.js';
 import { toggleInertForAllExceptOpenedElement } from './traits/Inert.js';
 
 
