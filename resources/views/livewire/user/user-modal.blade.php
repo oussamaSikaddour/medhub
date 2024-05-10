@@ -4,7 +4,6 @@
 
 <div
 class="form__container"
-x-on:init="console.log('fuck you')"
 >
     <form
     class="form"

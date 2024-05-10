@@ -53,13 +53,14 @@ return [
     'profile'=>[
          'page-title'=>'Your Profile',
     ],
-    'patients'=>[
-        'page-title'=>"Patients",
-        'add-patient'=>"Add Patient"
-    ],
     'patient'=>[
         'page-title'=>"Patient",
         'add-medical-stay'=>"Add Medical Stay",
+        'includeRadios'=>"Include radiological examens",
+        'includeMStays'=>"Include medical stays",
+        'includeMStays'=>"Include medical stays",
+        "start-d"=>"Starting date :",
+        "end-d"=>"Ending date :",
     ]
 
 

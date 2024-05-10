@@ -44,5 +44,11 @@ $dialogQuestion = [
         document.addEventListener('dialog-will-be-close', function(event) {
             @this.closeDialog();
         });
+        $wire.on("user-chose-yes",()=>{
+            @this.closeDialog();
+
+            const closeDialogBoxEvent = new CustomEvent('close-dialog-box');
+         document.dispatchEvent(closeDialogBoxEvent);
+        })
     </script>
 @endscript

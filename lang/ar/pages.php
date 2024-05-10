@@ -53,13 +53,14 @@ return [
     'profile' => [
         'page-title' => 'ملفك الشخصي',
     ],
-    'patients' => [
-        'page-title' => 'المرضى',
-        'add-patient' => 'إضافة مريض',
-    ],
     'patient' => [
-        'page-title' => 'المريض',
-        'add-medical-stay' => 'إضافة إقامة طبية',
-    ]
+        'page-title' => 'مريض', // Patient in Arabic
+        'add-medical-stay' => 'إضافة إقامة طبية', // Add Medical Stay in Arabic
+        'includeRadios' => 'تضمين الفحوصات الإشعاعية', // Include radiological examens in Arabic
+        'includeMStays' => 'تضمين الإقامات الطبية', // Include medical stays in Arabic
+        'start-d' => 'تاريخ البدء:', // Starting date in Arabic
+        'end-d' => 'تاريخ النهاية:',   // Ending date in Arabic
+    ],
+
 
 ];

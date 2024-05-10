@@ -106,8 +106,7 @@ trait ImageTrait
            ->where('imageable_type', $imageable_type)
            ->first();
        if ($oldImage) {
-           Storage::disk('public')->delete(optional($oldImage)->path);
-           $oldImage->delete();
+        $this->deleteImage($oldImage);
        }
        $this->uploadAndCreateImage(
            $image,
@@ -117,7 +116,13 @@ trait ImageTrait
        );
    }
 
-
-
-
+   public  function deleteImage($image){
+    Storage::disk('public')->delete($image->path);
+    $image->delete();
+   }
+public function deleteImages($images){
+    foreach ($images as $image) {
+        $this->deleteImage($image);
+    }
+}
 }

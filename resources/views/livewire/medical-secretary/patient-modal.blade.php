@@ -6,6 +6,7 @@
 
 <div class="form__container">
 
+
     @if(isset($this->doctors) && count($this->doctors) === 0)
 
          <h2>@lang("forms.patient.no-doctor-err")</h2>
@@ -76,11 +77,14 @@
 
 
         <div class="form__actions">
+            @can('secretary-access')
             <div wire:loading>
                 <x-loading />
             </div>
             <button type="submit" class="button button--primary">@lang('modals.common.submit-btn')</button>
+            @endcan
         </div>
+
     </form>
     @endif
 </div>

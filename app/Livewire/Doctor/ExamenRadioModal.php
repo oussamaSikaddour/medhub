@@ -7,6 +7,7 @@ use App\Livewire\Forms\ExamenRadio\UpdateForm;
 use App\Models\ExamenRadio;
 use App\Models\Image;
 use App\Traits\GeneralTrait;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -20,6 +21,7 @@ class ExamenRadioModal extends Component
     public ExamenRadio $eRadio;
     public $id = "";
     public $patientId;
+    public $report;
     public $temporaryImageUrls=[];
 
 
@@ -59,6 +61,19 @@ class ExamenRadioModal extends Component
 
 
 
+    #[On('set-report')]
+    public function setReport($content)
+    {
+     if ($this->id !== "") {
+        $this->updateForm->fill([
+            'report'=>$content
+        ]);
+     }else{
+         $this->addForm->fill([
+             'report'=>$content
+         ]);
+     }
+    }
 
 
     public function mount()
@@ -67,6 +82,7 @@ class ExamenRadioModal extends Component
         if ($this->id !== "") {
             try {
               $this->eRadio = ExamenRadio::findOrFail($this->id);
+              $this->report =  $this->eRadio->report;
                $images = Image::where('imageable_id', $this->id)
                ->where('imageable_type','App\Models\ExamenRadio')
                ->where('use_case','radio')->get();

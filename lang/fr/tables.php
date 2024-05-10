@@ -35,5 +35,8 @@ return [
         ],
         'not-found' => 'Aucun examen radiologique trouvé pour le moment.',
     ],
+    'medical-stays' => [
+        'not-found' => 'Aucun séjour médical trouvé pour le moment',
+    ],
 
 ];

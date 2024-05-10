@@ -56,6 +56,7 @@ return [
 
 ],
 "medical-stay"=>[
+    "active-stay-err"=>"You cannot add another medical stay for this patient as they currently have an active stay without a release date",
     "entryDate"=>"Entry Date",
     "room"=>"Room",
     "bed"=>"Bed",

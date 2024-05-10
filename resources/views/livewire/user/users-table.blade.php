@@ -5,7 +5,7 @@ x-on:update-users-table.window="$wire.$refresh()"
 >
     <div class="table__header">
         <div>
-            <button class="button button--primary rounded table__button"  wire:click="generateUsersExcel()"><i class="fa-solid fa-file-excel"></i></button>
+
         </div>
         <div>
             <x-form.input

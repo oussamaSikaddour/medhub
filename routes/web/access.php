@@ -31,8 +31,7 @@ Route::group(['middleware' => ['auth','maintenance']], function () {
         Route::get('/dashboard', [RoutesController::class, 'showAdminPage'])->name(RoutesNamesEnum::ADMIN_ROUTE);
         Route::get('/manageUsers', [RoutesController::class, 'showUsersPage'])->name("users");
     });
-    Route::middleware('can:user-access')->group(function () {
-        Route::get('/patients', [RoutesController::class, 'showPatientsPage'])->name("patients");
-        Route::get('/patients/{patientId?}', [RoutesController::class, 'showPatientPage'])->name("patient");
+    Route::middleware('can:doctor-access')->group(function () {
+        Route::get('/patients/{patientId?}', [RoutesController::class, 'showPatientPage'])->name('patient');
     });
 });

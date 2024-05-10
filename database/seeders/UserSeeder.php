@@ -32,6 +32,7 @@ class UserSeeder extends Seeder
         ]);
         $user->roles()->attach(Role::where('slug', 'admin')->first());
         $user->roles()->attach(Role::where('slug', 'super_admin')->first());
+        $user->roles()->attach(Role::where('slug', 'user')->first());
         PersonnelInfo::create(["user_id"=>$user->id]);
         Occupation::create(["user_id"=>$user->id]);
         // User::factory()

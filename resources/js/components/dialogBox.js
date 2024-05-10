@@ -24,6 +24,10 @@ boxCloser.focus(); // Focus on the close button when the dialog opens
 
  boxCloser.addEventListener("click",()=>closeDialog(dialog));
 })
+document.addEventListener('close-dialog-box', function(event) {
+    const dialog = document.querySelector(".box");
+closeDialog(dialog);
+})
 }
 
 export default DialogBox;

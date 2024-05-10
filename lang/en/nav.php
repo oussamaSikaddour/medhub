@@ -12,5 +12,4 @@ return [
 'login'=>"Login",
 'register'=>"Register",
 "users"=>"Manage Users",
-"patients"=>"Manage Patients",
 ];

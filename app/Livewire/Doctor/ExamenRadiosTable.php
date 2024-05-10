@@ -3,7 +3,9 @@
 namespace App\Livewire\Doctor;
 
 use App\Models\ExamenRadio;
+use App\Models\Image;
 use App\Traits\GeneralTrait;
+use App\Traits\ImageTrait;
 use App\Traits\TableTrait;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -17,7 +19,7 @@ class ExamenRadiosTable extends Component
 
 
 
-    use WithPagination,TableTrait ,GeneralTrait,WithFileUploads;
+    use WithPagination,TableTrait ,GeneralTrait,WithFileUploads,ImageTrait;
 
     // Properties with default values
     #[Url()]
@@ -79,6 +81,14 @@ class ExamenRadiosTable extends Component
     public function deleteEstablishment(ExamenRadio $eRadio)
     {
         try {
+
+            $images = Image::where('imageable_id', $eRadio->id)
+            ->where('imageable_type','App\Models\ExamenRadio')
+            ->where('use_case','radio')->get();
+
+            if(isset($images)){
+                $this->deleteImages($images);
+            }
             $eRadio->delete();
         } catch (\Exception $e) {
             $this->dispatch('open-errors', [$e->getMessage()]);

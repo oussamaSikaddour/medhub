@@ -22,6 +22,7 @@ toggleInert(childElement, invertState ? !hasClassName : hasClassName);
 
 
 export const toggleInertForAllExceptOpenedElement = (openedElement, className,invertState=false) => {
+
 const bodyChildren = document.body.children;
 const elementState = openedElement.classList.contains(className);
 [...bodyChildren].forEach((element) => {

@@ -12,5 +12,4 @@ return [
     "login" => "Connexion",
     "register" => "S'inscrire",
     "users" => "Gérer les utilisateurs",
-    "patients" => "Gérer les patients",
 ];

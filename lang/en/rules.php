@@ -1,12 +1,6 @@
 <?php
  return [
-  "daira"=>[
-    "not-valid"=>"The selected Daïra is not a valid",
-  ],
-  "specialty"=>[
-    "not-valid"=>"The selected Specialty is not a valid",
-  ],
-  "land_line_number"=>[
-    "not-valid"=>"The selected :attribute must not equal an existing land line number , or a fax number"
-  ]
+    'medical_stay' => [
+        'not-valid' => 'The selected :attribute conflicts with an medical stay. The stay starts on :start and ends on :end.',
+    ],
  ];

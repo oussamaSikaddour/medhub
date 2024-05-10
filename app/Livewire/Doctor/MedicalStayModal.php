@@ -6,6 +6,7 @@ use App\Livewire\Forms\MedicalStay\AddForm;
 use App\Livewire\Forms\MedicalStay\UpdateForm;
 use App\Models\MedicalStay;
 use App\Traits\GeneralTrait;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -18,12 +19,28 @@ class MedicalStayModal extends Component
     public MedicalStay $mStay;
     public $id = "";
     public $patientId;
+    public $diagnostic;
+    public $releaseState;
+    public $indicationGiven=false;
+    public $noReleaseDateYet="";
 
 
 
 
 
 
+    function hasOpenMedicalStay(int $patientId): bool
+    {
+        // Leverage the MedicalStay model's query builder
+        $query = MedicalStay::query();
+
+        // Filter by patient ID and null release date
+        $query->where('patient_id', $patientId)
+            ->whereNull('release_date');
+
+        // Check if any records exist
+        return $query->exists();
+    }
 
 
 
@@ -33,11 +50,14 @@ class MedicalStayModal extends Component
     {
 
 
+
         if ($this->id !== "") {
             try {
               $this->mStay = MedicalStay::findOrFail($this->id);
 
-
+                 $this->diagnostic=$this->mStay->diagnostic;
+                 $this->releaseState=$this->mStay->release_state;
+                 $this->indicationGiven=$this->mStay->indication_given;
                 $this->updateForm->fill([
                     'id' => $this->id,
                     "entry_date"=>$this->mStay->entry_date,
@@ -57,9 +77,50 @@ class MedicalStayModal extends Component
             }
         }else{
          $this->addForm->patient_id = $this->patientId;
+         $this->noReleaseDateYet = $this->hasOpenMedicalStay($this->patientId);
         }
     }
 
+
+    #[On('set-diagnostic')]
+    public function setDiagnostic($content)
+    {
+     if ($this->id !== "") {
+        $this->updateForm->fill([
+            'diagnostic'=>$content
+        ]);
+     }else{
+         $this->addForm->fill([
+             'diagnostic'=>$content
+         ]);
+     }
+    }
+    #[On('set-release-state')]
+    public function setReleaseState($content)
+    {
+     if ($this->id !== "") {
+        $this->updateForm->fill([
+            'release_state'=>$content
+        ]);
+     }else{
+         $this->addForm->fill([
+             'release_state'=>$content
+         ]);
+     }
+    }
+    #[On('set-indication-given')]
+    public function setIndicationGiven($content)
+    {
+     if ($this->id !== "") {
+        $this->updateForm->fill([
+            'indication_given'=>$content
+        ]);
+     }else{
+         $this->addForm->fill([
+             'indication_given'=>$content
+         ]);
+     }
+    }
 
     public function handleSubmit()
     {

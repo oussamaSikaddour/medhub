@@ -12,6 +12,7 @@ class Modal extends Component
     public $title = "";
     public $type="";
     public $component = [];
+    public $containsTinyMce=false;
 
     #[On("open-modal")]
     public function openModal($data)
@@ -20,6 +21,7 @@ class Modal extends Component
         $this->title = $data['title'];
         $this->type = isset($data['type']) ? $data['type'] : '';
         $this->component = $data['component'];
+        $this->containsTinyMce = isset($data['containsTinyMce'])?$data["containsTinyMce"]:"false";
     }
 
 
@@ -29,7 +31,9 @@ class Modal extends Component
         $this->title = "";
         $this->type="";
         $this->component =[];
+        $this->containsTinyMce=false;
     }
+
 
     public function render()
     {

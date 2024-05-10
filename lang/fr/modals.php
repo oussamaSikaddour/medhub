@@ -56,6 +56,7 @@ return [
             "patient-pic-type-err" => "La photo du patient doit être au format image"
         ],
         'medical-stay' => [
+            "active-stay-err" => "Vous ne pouvez pas ajouter un autre séjour médical pour ce patient car il a déjà un séjour actif sans date de sortie",
             'entryDate' => 'Date d\'entrée',
             'room' => 'Chambre',
             'bed' => 'Lit',

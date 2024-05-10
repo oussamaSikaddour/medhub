@@ -102,6 +102,14 @@ public $image;
     }
 
 
+    public function messages(): array
+    {
+        return [
+            'first_phone.regex' => __("forms.patient.tel-match-err"),
+            'second_phone.regex' => __("forms.patient.tel-match-err"),
+        ];
+    }
+
     public function save($patient)
     {
         $data =$this->validate();

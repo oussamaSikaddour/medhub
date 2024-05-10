@@ -10,7 +10,7 @@
 
 
 
-            <div class="column center">
+            <div class="column ">
                 <x-form.selector
                 htmlId="EXR-Type"
                 name="{{ $form }}.type"
@@ -19,10 +19,11 @@
                 :showError="true"
                 type="filter"
                 />
-            <x-form.textarea
-            name="{{ $form }}.report"
-            :label="__('modals.examen-radio.report')"
-            html_id="MFContentFr"
+            <livewire:tiny-mce-text-area
+            htmlId="MEReport"
+            contentUpdatedEvent="set-report"
+            wire:key="MEReport"
+            :content="$report"
             />
            </div>
 
@@ -47,7 +48,7 @@
 
 
         <div class="form__actions">
-            <div wire:loading>
+            <div wire:loading wire:target="handleSubmit">
                 <x-loading />
             </div>
             <button type="submit" class="button button--primary">@lang('modals.common.submit-btn')</button>

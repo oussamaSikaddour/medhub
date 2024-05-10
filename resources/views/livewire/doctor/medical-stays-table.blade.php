@@ -109,7 +109,8 @@ x-on:update-medical-stays-table.window="$wire.$refresh()"
                                   "title" => "modals.medical-stay.for.update",
                                   "component" => [
                                                  "name" => "doctor.medical-stay-modal",   "parameters" => ["id" => $ms->id]
-                                                 ]
+                                                 ],
+                                                 "containsTinyMce"=>true
                                     ]'
                         />
 
@@ -127,7 +128,7 @@ x-on:update-medical-stays-table.window="$wire.$refresh()"
     @else
     <div class="table__footer">
     <h2>
-        @lang('tables.patients.not-found')
+        @lang('tables.medical-stays.not-found')
     </h2>
     </div>
    @endif

@@ -169,8 +169,9 @@ x-on:update-patients-table.window="$wire.$refresh()"
                                                  ]
                                     ]'
                         />
-                        <x-table.link route="patient" parameter="{{  $p->id}}" icon="view" />
-
+                        @can("doctor-access")
+                        <x-table.link route="patient" parameter="{{ $p->id}}" icon="view" />
+                        @endcan
                     </td>
                 </tr>
             @endforeach

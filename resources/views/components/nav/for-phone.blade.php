@@ -38,10 +38,6 @@
                    route="loginPage"
                    :label="__('nav.login')"
              />
-            <x-nav.nav-link
-                    route="registerPage"
-                    :label="__('nav.register')"
-            />
         </ol>
     </nav>
 @endguest

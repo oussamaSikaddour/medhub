@@ -115,8 +115,9 @@ x-on:update-examen-radios-table.window="$wire.$refresh()">
                                                        "name" => "doctor.examen-radio-modal", "parameters" =>
                                                        ["id" => $ex->id,
                                                         "patientId"=>$ex->patient_id
-                                                       ]
-                                                       ]
+                                                       ],
+                                                       ],
+                                                       "containsTinyMce"=>true
                                        ]'
                             />
 

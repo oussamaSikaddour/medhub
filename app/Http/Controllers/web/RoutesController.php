@@ -43,7 +43,14 @@ return view('pages.admin.users',compact('title','modalData'));
  public function showUserPage()
  {
   $title =__("pages.user-space.page-title");
- return view('pages.user.home',compact('title'));
+$modalData= [
+             "title"=>"modals.patient.for.add",
+              "component"=>[
+                           "name"=>'medical-secretary.patient-modal',
+                            "parameters"=> []
+                           ]
+             ];
+ return view('pages.user.home',compact('title','modalData'));
  }
  public function showProfilePage()
  {
@@ -54,19 +61,7 @@ return view('pages.admin.users',compact('title','modalData'));
 
 
 
-public function showPatientsPage()
-{
-$title =__("pages.patients.page-title");
-$modalData= [
-             "title"=>"modals.patient.for.add",
-              "component"=>[
-                           "name"=>'medical-secretary.patient-modal',
-                            "parameters"=> []
-                           ]
-             ];
 
-return view('pages.user.patients',compact('title','modalData'));
- }
 public function showPatientPage($patientId)
 {
 $title =__("pages.patient.page-title");
@@ -75,14 +70,16 @@ $modalData1= [
               "component"=>[
                            "name"=>'doctor.medical-stay-modal',
                             "parameters"=> ['patientId'=> $patientId]
-                           ]
+              ],
+                           "containsTinyMce"=>true
              ];
 $modalData2= [
              "title"=>"modals.examen-radio.for.add",
              "component"=>[
                 "name"=>'doctor.examen-radio-modal',
                  "parameters"=> ['patientId'=> $patientId]
-                ]
+             ],
+             "containsTinyMce"=>true
              ];
 
 return view('pages.user.patient',compact('title','modalData1','modalData2','patientId'));

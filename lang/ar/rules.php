@@ -1,12 +1,7 @@
 <?php
 return [
-    "daira" => [
-        "not-valid" => "الدائرة المحددة غير صالحة",
+    'medical_stay' => [
+        'not-valid' => 'ال :attribute المُختار يتعارض مع إقامة طبية. يبدأ الإقامة في :start وينتهي في :end.',
     ],
-    "specialty" => [
-        "not-valid" => "التخصص المحدد غير صالح",
-    ],
-    "land_line_number" => [
-        "not-valid" => "يجب ألا يكون الرقم الثابت المحدد :attribute مساويًا لرقم هاتف ثابت موجود أو رقم فاكس"
-    ]
 ];
+

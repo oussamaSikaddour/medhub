@@ -54,12 +54,13 @@ return [
     'profile' => [
         'page-title' => 'Votre Profil',
     ],
-    'patients' => [
-        'page-title' => 'Patients',
-        'add-patient' => 'Ajouter un patient',
-    ],
-     "patient"=>[
+    'patient' => [
         'page-title' => 'Patient',
         'add-medical-stay' => 'Ajouter un séjour médical',
-     ]
+        'includeRadios' => 'Inclure les examens radiologiques',
+        'includeMStays' => 'Inclure les séjours médicaux',
+        'start-d' => 'Date de début :', // Starting date in French
+        'end-d' => 'Date de fin :',   // Ending date in French
+    ],
+
 ];

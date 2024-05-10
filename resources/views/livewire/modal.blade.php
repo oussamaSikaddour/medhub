@@ -34,10 +34,15 @@ aria-labelledby="dialog_label"
 </div>
 
 
+
 @script
   <script>
   document.addEventListener('model-will-be-close', function(event) {
         @this.closeModal();
+        if(@this.containsTinyMce === true){
+        window.location.reload();
+        }
     });
   </script>
 @endscript
+

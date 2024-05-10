@@ -8,14 +8,6 @@
              badge="255"
           />
     @endcan
-        @can('user-access')
-        <x-main-menu.item
-             route="patients"
-            :routeName="__('nav.patients')"
-             icon="users"
-             badge="255"
-          />
-    @endcan
       </ul>
 </div>
 

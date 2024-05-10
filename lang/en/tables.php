@@ -35,5 +35,8 @@ return [
             ],
         "not-found"=>"No radiological exams  Found at the moment",
         ],
+"medical-stays"=>[
+        "not-found"=>"No medical stays  Found at the moment",
+        ],
 
 ];

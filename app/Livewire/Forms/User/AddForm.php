@@ -46,7 +46,7 @@ class AddForm extends Form
                 'string',
                 'email',
                 'max:255',
-                Rule::unique('users','email')->whereNull('deleted_at'),
+                Rule::unique('users','email'),
             ],
             'personnelInfo.last_name' => 'required|string|min:3|max:100',
             'personnelInfo.first_name' => 'required|string|min:3|max:100',

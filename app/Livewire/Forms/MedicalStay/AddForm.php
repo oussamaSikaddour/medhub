@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms\MedicalStay;
 
 use App\Models\MedicalStay;
+use App\Rules\AlreadyHasAMStay;
 use App\Traits\ResponseTrait;
 use Carbon\Carbon;
 use Livewire\Attributes\Validate;
@@ -28,14 +29,22 @@ public $patient_id;
     // Livewire rules
     public function rules()
     {
-
+        $validationAttributes = $this->validationAttributes();
         return [
-            'entry_date' => 'required|date|date_format:Y-m-d|after_or_equal:'. Carbon::today()->format('Y-m-d'),
+            'entry_date' =>[
+                          'required',
+                           'date',
+                          'after_or_equal:'. Carbon::today()->format('Y-m-d'),
+                             new AlreadyHasAMStay($this->patient_id,$validationAttributes['entry_date'])],
             'room' => 'required|string|max:255',
             'bed' => 'nullable|string|max:255',
             'entry_mode' => 'required|string|max:255',
             'diagnostic' => 'nullable|string',
-            'release_date' => 'nullable|date|date_format:Y-m-d|after_or_equal:entry_date',
+            'release_date' =>[
+                                'nullable',
+                                 'date',
+                                'after_or_equal:entry_date',
+                                 new AlreadyHasAMStay($this->patient_id,$validationAttributes['release_date'])],
             'release_mode' => 'nullable|string|max:255',
             'release_state' => 'nullable|string|max:255',
             'indication_given' => 'nullable|string',
