@@ -8,7 +8,7 @@
 <section class="section">
     <div  >
         <button class="button rounded button--primary">
-          <a href="{{ url()->previous() }}"><i class="fa-solid fa-arrow-left"></i></a>
+          <a  href="{{ route("home") }}"><i class="fa-solid fa-arrow-left"></i></a>
         </button>
 
       </div>

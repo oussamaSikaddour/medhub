@@ -14,12 +14,12 @@
                     route="home"
                     :label="__('nav.user-space')"
             />
-         @can('admin-access')
+         {{-- @can('admin-access')
              <x-nav.nav-link
                      route="dashboard"
                      :label="__('nav.dashboard')"
              />
-        @endcan
+        @endcan --}}
         <livewire:user.user-nav-btn />
         </ol>
 </nav>

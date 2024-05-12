@@ -7,11 +7,6 @@ $userDropdownLink = $userName . $userImage;
 <x-nav.dropdown-nav-link
 x-on:update-nav-user-btn.window="$wire.$refresh()"
 :items="[
-          [
-            'route'=>route('profile'),
-            'label'=>__('nav.profile'),
-            'icon'=>'profile'
-          ],
          [
             'route' => route('changePassword'),
             'label' => __('nav.changePassword')

@@ -23,7 +23,11 @@ return [
         ],
         "not-found" => "لا يوجد مستخدمون في الوقت الحالي",
     ],
-    'examen-radio' => [
+
+    'patients' => [
+        'not-found' => 'لم يتم العثور على أي مريض في الوقت الحالي.',
+    ],
+    'examen-radios' => [
         'doctorName' => 'اسم الطبيب',
         'type' => 'نوع الفحص',
         'createdAt' => 'تاريخ الفحص',

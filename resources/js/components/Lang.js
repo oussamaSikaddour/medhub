@@ -1,7 +1,7 @@
 import {handleKeyEvents} from "../traits/KeyEventHandlers";
 import despatchCustomEvent from "../traits/DespatchCustomEvent";
 
-
+import { getBaseURL } from "../traits/general";
 
 
 
@@ -86,10 +86,12 @@ const manageLangMenuOnClickOrKeyDownEvents = (event,langBtn,langMenu,initialLang
 
 const Lang =()=>{
 
+    const currentURL = window.location.href;
 
+ const currentURLOrigin= getBaseURL(currentURL)
   const initialLanguages = [
-    { lang: 'Fr', flag: './img/fr.png' },
-    { lang: 'Ar', flag: './img/ar.png' },
+    { lang: 'Fr', flag: `${currentURLOrigin}/img/fr.png` },
+    { lang: 'Ar', flag: `${currentURLOrigin}/img/ar.png` },
   ];
   const savedLanguage = localStorage.getItem('language') || 'Fr';
   const langMenuContainer = document.querySelector(".lang__menu__container");
