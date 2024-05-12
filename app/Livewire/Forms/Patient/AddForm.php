@@ -18,7 +18,6 @@ public $last_name_fr;
 public $first_name_fr;
 public $last_name_ar;
 public $first_name_ar;
-public $code;
 public $marital_state;
 public $gender;
 public $national_card;
@@ -42,7 +41,7 @@ public $image;
                 'required',
                 'email',
                 'max:255',
-                Rule::unique('patients','email')->whereNull('deleted_at'),
+                Rule::unique('patients','email'),
             ],
 
             'last_name_fr' => 'required|string|max:255',
@@ -113,13 +112,14 @@ public $image;
     }
     public function save()
     {
+
         $data = $this->validate();
         try {
 
             return DB::transaction(function () use ($data) {
                 // $password = Str::password(8,symbols:false);
 
-                $data['code']= "code";
+                $data['code']= $this->generatePatientCode($data['gender']);
                 $patient = Patient::create($data);
                 // $images = $request->allFiles('images');
 
@@ -133,6 +133,42 @@ public $image;
         } catch (\Exception $e) {
             return $this->response(false,errors:[$e->getMessage()]);
         }
+    }
+
+    private function generatePatientCode( string $patientSex = null): string
+    {
+        $now = Carbon::now();
+        $currentYear = $now->format('y');
+        $currentMonth = $now->format('m');
+
+        // Check if the patient sex is valid (optional)
+        $lastPatient = Patient::orderBy('id', 'desc')->first();
+
+        // Check if the last patient code exists
+        if (!$lastPatient) {
+            // Generate a new code if the last patient doesn't exist
+            $patientNumber = str_pad(1, 5, '0', STR_PAD_LEFT); // Start with patient number 00001
+        } else {
+            // Extract year, month, and patient number from the last patient code
+            $lastPatientCode = $lastPatient->code;
+            $lastMonth = substr($lastPatientCode, 2, 2);
+            $lastPatientNumber = intval(substr($lastPatientCode, 4, 5));
+
+            // Increment patient number based on month comparison
+            if ($currentMonth != $lastMonth) {
+                $patientNumber = str_pad(1, 5, '0', STR_PAD_LEFT); // Start a new sequence for the new month
+            } else {
+                $patientNumber = str_pad($lastPatientNumber + 1, 5, '0', STR_PAD_LEFT); // Increment the patient number
+            }
+        }
+
+        // Determine the sex character ('f' for female, 'm' for male)
+        $sexChar = strtolower($patientSex) === 'female' ? 'F' : 'M';
+
+        // Combine the components to form the patient code
+        $patientCode = $currentYear . $currentMonth . $patientNumber . $sexChar;
+
+        return $patientCode;
     }
 }
 
