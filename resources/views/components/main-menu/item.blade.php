@@ -9,13 +9,13 @@
     <a role="menuitem" href="{{ route($route) }}" tabindex="0">
         {{ $routeName }}
 
-       @if($badge)
         <span>
             @if (array_key_exists($icon, $iconsArray))
 
            {!!$iconsArray[$icon]!!}
             @endif
         </span>
+       @if($badge)
         <x-badge :badge="$badge" class="{{ $badgeClass }}" />
         @endif
  </a>

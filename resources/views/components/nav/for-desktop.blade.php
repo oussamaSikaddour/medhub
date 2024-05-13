@@ -11,7 +11,9 @@
         Main navigation
     </h2>
         <div class="nav__addons">
-           <x-main-menu.open-btn   html_id="mainMenuDeskTopBtn" />
+            @can('admin-access')
+            <x-main-menu.open-btn   html_id="mainMenuDeskTopBtn" />
+            @endcan
            <x-nav.nav-logo/>
         </div>
         <ol class="nav__items">

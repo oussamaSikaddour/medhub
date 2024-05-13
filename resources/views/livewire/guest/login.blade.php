@@ -14,21 +14,18 @@
         html_id="loginPassword"/>
    </div>
 
-   <div class="center">
-    <a href="{{ route("forgetPasswordPage") }}">
-        <p>@lang("forms.login.forget-password-link")</p></a>
-  </div>
+
 
    <div class="form__actions">
 
-       <div wire:loading>
-            <x-loading  />
-       </div>
-       <a class="button"    href="{{ route("registerPage") }}" >
-        @lang("forms.login.forget-password-link")</a>
-       <button type="submit" class="button button--primary">@lang("forms.common.submit-btn")</button>
+    <div wire:loading>
+         <x-loading  />
+    </div>
+    <a class="button"    href="{{ route("forgetPasswordPage") }}" >
+     @lang("forms.login.forget-password-link")</a>
+    <button type="submit" class="button button--primary">@lang("forms.common.submit-btn")</button>
 
-   </div>
+</div>
 
 
   </form>

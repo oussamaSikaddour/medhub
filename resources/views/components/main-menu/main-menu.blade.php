@@ -5,7 +5,7 @@
              route="users"
             :routeName="__('nav.users')"
              icon="users"
-             badge="255"
+
           />
     @endcan
       </ul>
