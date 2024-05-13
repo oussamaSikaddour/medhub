@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Forms\forgetPassword;
+namespace App\Livewire\Forms\ForgetPassword;
 
 use App\Models\User;
 use App\Traits\ResponseTrait;

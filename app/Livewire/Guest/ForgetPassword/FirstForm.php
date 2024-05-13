@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Guest\ForgetPassword;
 
-use App\Livewire\Forms\forgetPassword\FirstForm as forgetPasswordFirstForm;
+use App\Livewire\Forms\ForgetPassword\FirstForm as forgetPasswordFirstForm;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 

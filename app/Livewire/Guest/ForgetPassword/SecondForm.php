@@ -3,7 +3,7 @@
 namespace App\Livewire\Guest\ForgetPassword;
 
 use App\Events\Auth\EmailVerificationEvent;
-use App\Livewire\Forms\forgetPassword\SecondForm as FGPSecondForm;
+use App\Livewire\Forms\ForgetPassword\SecondForm as FGPSecondForm;
 use App\Models\User;
 use Livewire\Attributes\On;
 use Livewire\Component;
