@@ -56,10 +56,10 @@ public function rules()
 
     public function save()
     {
-        $validatedData = $this->validate();
+
         try {
 
-
+            $validatedData = $this->validate();
             return DB::transaction(function () use ($validatedData, ) {
 
                 $eRadio= ExamenRadio::create($validatedData);
