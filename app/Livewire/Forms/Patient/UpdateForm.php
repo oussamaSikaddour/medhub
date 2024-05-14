@@ -64,16 +64,15 @@ public $image;
             'first_phone' => [
                 'nullable',
                 'regex:/^(05|06|07)\d{8}$/',
-                'unique:patients,tel'
+                Rule::unique('patients','first_phone', 'second_phone')->whereNull('deleted_at')->ignore($this->id)
             ],
             'second_phone' => [
                 'nullable',
                 'regex:/^(05|06|07)\d{8}$/',
-                'unique:patients,tel'
+                  Rule::unique('patients','first_phone', 'second_phone')->whereNull('deleted_at')->ignore($this->id)
             ],
             'doctor_id' => 'required|exists:users,id',
-                'image' => 'required|file|mimes:jpeg,png,gif,ico,webp|max:10000',
-                ''
+           'image' => 'nullable|file|mimes:jpeg,png,gif,ico,webp|max:10000',
 
         ];
 

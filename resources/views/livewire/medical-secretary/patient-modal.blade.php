@@ -78,7 +78,7 @@
 
         <div class="form__actions">
             @can('secretary-access')
-            <div wire:loading>
+            <div wire:loading wire:target="handleSubmit">
                 <x-loading />
             </div>
             <button type="submit" class="button button--primary">@lang('modals.common.submit-btn')</button>

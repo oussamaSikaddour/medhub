@@ -34,6 +34,7 @@ class ExamenRadioModal extends Component
         try {
 
             if ($property === "addForm.images" && $this->addForm->images) {
+                $this->temporaryImageUrls = [];
                 foreach ($this->addForm->images as $image) {
                     if (!$image->temporaryUrl()) {
                         $this->temporaryImageUrls = []; // Set to empty array if any image doesn't have a temporary URL
@@ -116,6 +117,7 @@ class ExamenRadioModal extends Component
     public function handleSubmit()
     {
 
+
         $this->dispatch('form-submitted');
         if(auth()->id()===$this->id){
            $this->dispatch("update-nav-user-btn");
@@ -123,14 +125,22 @@ class ExamenRadioModal extends Component
         $response = ($this->id !== "")
             ? $this->updateForm->save($this->eRadio)
             : $this->addForm->save();
-        if ($this->id === "") {
-            $this->addForm->reset('report','type');
+            if ($this->id === "") {
+                $this->addForm->images=[];
+                $this->temporaryImageUrls=[];
         }
+
         if ($response['status']) {
             $this->dispatch('update-examen-radios-table');
             $this->dispatch('open-toast', $response['message']);
+            if ($this->id === "") {
+                $this->addForm->reset('report','type');
+                $this->report="";
+
+            }
         } else {
             $this->dispatch('open-errors', $response['errors']);
+
         }
     }
     public function render()

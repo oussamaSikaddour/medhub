@@ -27,7 +27,7 @@ public function rules()
         'images.*' => 'required|file|mimes:jpeg,png,gif,ico,webp|max:10000',
         'images' => 'required|array|max:10',
         'type' => 'required|string|min:2|max:10',
-        'report' => 'required|string|min:10|max:255',
+        'report' => 'required|string|min:10',
         'doctor_id' => [
             'required',
             'integer',

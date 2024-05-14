@@ -107,6 +107,7 @@ class PatientModal extends Component
             : $this->addForm->save();
         if ($this->id === "") {
             $this->addForm->reset();
+            $this->temporaryImageUrl=asset('img/default.png');
         }
         if ($response['status']) {
             $this->dispatch('update-patients-table');
