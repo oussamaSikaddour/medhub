@@ -72,29 +72,36 @@ class PatientInfos extends Component
     #[Computed]
     public function patientData()
     {
+      $relations = [];
+
+      if ($this->includeRadios) {
+        $relations['examenRadios'] = function ($query) {
+          if ($this->RdateMin !== "") {
+            $query->where('examen_radios.created_at', '>=', Carbon::parse($this->RdateMin));
+            if ($this->RdateMax !== "") {
+              $query->where('examen_radios.created_at', '<=', Carbon::parse($this->RdateMax));
+            } else {
+              $query->where('examen_radios.created_at', '<=', Carbon::parse($this->RdateMin . ' +120 days'));
+            }
+          }
+        };
+      }
+
+      if ($this->includeMStays) {
+        $relations['medicalStays'] = function ($query) {
+          if ($this->SdateMin !== "") {
+            $query->where('medical_stays.created_at', '>=', Carbon::parse($this->SdateMin));
+            if ($this->SdateMax !== "") {
+              $query->where('medical_stays.created_at', '<=', Carbon::parse($this->SdateMax));
+            } else {
+              $query->where('medical_stays.created_at', '<=', Carbon::parse($this->SdateMin . ' +120 days'));
+            }
+          }
+        };
+      }
+
       $query = Patient::query()
-        ->with([
-          'examenRadios' => function ($query) {
-            if ($this->RdateMin !== "") {
-              $query->where('examen_radios.created_at', '>=', Carbon::parse($this->RdateMin));
-              if ($this->RdateMax !== "") {
-                $query->where('examen_radios.created_at', '<=', Carbon::parse($this->RdateMax));
-              } else {
-                $query->where('examen_radios.created_at', '<=', Carbon::parse($this->RdateMin . ' +120 days'));
-              }
-            }
-          },
-          'medicalStays' => function ($query)  {
-            if ($this->SdateMin !== "") {
-              $query->where('medical_stays.created_at', '>=', Carbon::parse($this->SdateMin));
-              if ($this->SdateMax !== "") {
-                $query->where('medical_stays.created_at', '<=', Carbon::parse($this->SdateMax));
-              } else {
-                $query->where('medical_stays.created_at', '<=', Carbon::parse($this->SdateMin . ' +120 days'));
-              }
-            }
-          },
-        ]);
+        ->with($relations);
 
       $query->where('id', $this->patientId);
 
@@ -105,11 +112,12 @@ class PatientInfos extends Component
 
 
 
-
     public function printPatientIfonsPdf()
 {
 
 $patientData = $this->patientData();
+$patientData['includeRadios']= $this->includeRadios;
+$patientData['includeMStays']= $this->includeMStays;
    try {
         $pdf = PDF::loadView("pdfs.patient-infos", compact('patientData'));
         $tempDir = storage_path('app/temp/');

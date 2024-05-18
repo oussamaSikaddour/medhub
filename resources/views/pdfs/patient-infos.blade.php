@@ -31,6 +31,7 @@
       font-weight: bold;
     }
 
+
     .patient-image {
       width: 100px;
       height: 100px;
@@ -49,6 +50,11 @@
       display: block;
       margin-top: 15px;
     }
+.stay {
+height: 800px;
+}
+
+
   </style>
 </head>
 <body>
@@ -59,11 +65,14 @@
       <img src="{{ $patientData->image->url }}" alt="Patient Image" class="patient-image">
     @endif
     <ul>
-      <li><strong>Nom:</strong> {{ $patientData->full_name_fr }}</li>
+      <li><strong>Nom:</strong> {{ $patientData->last_name_fr }}  {{ $patientData->first_name_fr }}</li>
       <li><strong>Code:</strong> {{ $patientData->code }}</li>
     </ul>
   </div>
 
+
+
+  @if ($patientData->includeRadios)
   <h2>Examens</h2>
 
   @if ($patientData->examenRadios->isNotEmpty())
@@ -72,6 +81,10 @@
         <li>
           <strong>Date d'examen:</strong> {{ $examenRadio->created_at->format('Y-m-d') }}<br>
           <strong>Type:</strong> {{ $examenRadio->type }}<br>
+
+          <div >
+          {!! $examenRadio->report !!}
+          </div>
 
           @if ($examenRadio->images->isNotEmpty())
             <div class="examen-images">
@@ -88,21 +101,39 @@
   @else
     <p>Aucun examen antérieur trouvé.</p>
   @endif
+  @endif
 
+  @if ($patientData->includeMStays)
   <h2>Séjours Médicaux</h2>
 
   @if ($patientData->medicalStays->isNotEmpty())
     <ul>
       @foreach ($patientData->medicalStays as $medicalStay)
-        <li>
+        <div class="stay" >
           <strong>Date d'admission:</strong> {{ $medicalStay->entry_date }}<br>
-          <strong>Date de sortie:</strong> {{ $medicalStay->release_date }}<br>
           <strong>Motif du séjour:</strong> {{ $medicalStay->entry_mode }}<br>
-        </li>
+
+        <div >
+            {!! $medicalStay->diagnostic !!}
+
+        </div>
+
+        @if($medicalStay->release_date)
+        <strong>Date de sortie:</strong> {{ $medicalStay->release_date }}<br>
+        <strong>Motif du sortie:</strong> {{ $medicalStay->release_mode }}<br>
+        <div >
+            {!! $medicalStay->release_state !!}
+        </div>
+        <div >
+            {!! $medicalStay->indication_given !!}
+        </div>
+        @endIf
+    </div>
       @endforeach
     </ul>
   @else
     <p>Aucun séjour médical antérieur trouvé.</p>
+  @endif
   @endif
 </body>
 </html>

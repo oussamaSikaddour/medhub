@@ -55,7 +55,7 @@ class AddForm extends Form
        if($this->image){
         $rules = array_merge(
             $rules,[
-                'image' => 'required|file|mimes:jpeg,png,gif,ico,webp|max:10000',
+                'image' => 'required|file|mimes:jpeg,jpg,bmp,png,gif,ico,webp|max:10000',
             ]
             );
        }

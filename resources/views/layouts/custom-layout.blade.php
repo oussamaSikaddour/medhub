@@ -1,5 +1,6 @@
 
 
+
 @extends("layouts.root-layout")
 @section("content")
 <x-custom-layout.header />
@@ -11,8 +12,6 @@
 @endcan
 
 @endauth
-<main class="container">
 @yield("pageContent")
-</main>
 <x-custom-layout.footer />
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.custom-layout')
+@extends('layouts.default-layout')
 @section('pageContent')
 <section class="section">
     <div>

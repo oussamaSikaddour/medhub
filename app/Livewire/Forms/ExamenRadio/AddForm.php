@@ -24,7 +24,7 @@ public function rules()
 {
 
     return [
-        'images.*' => 'required|file|mimes:jpeg,png,gif,ico,webp|max:10000',
+        'images.*' => 'required|file|mimes:jpeg,jpg,bmp,png,gif,ico,webp|max:10000',
         'images' => 'required|array|max:10',
         'type' => 'required|string|min:2|max:10',
         'report' => 'required|string|min:10',
