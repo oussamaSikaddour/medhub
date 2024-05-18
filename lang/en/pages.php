@@ -2,10 +2,9 @@
 return [
     'landing'=> [
         'page-title'=>"Homepage",
-        'main-title'=>'Specialists at your fingertips.',
-        'welcome-text'=>"Easily book your consultations with specialists through our platform. Simplify your access to healthcare and benefit from a smooth and efficient medical journey. Your health deserves a hassle-free and streamlined experience.",
-        "text-button-auth"=>"My Appointments",
-        "text-button-guest"=>"Sign Up"
+          "text-1"=>"Welcome to MedHub: The Future of Digital Medical Records Management",
+          "text-2"=>"The Complete Solution for Patient Management and Medical Diagnostics",
+          "text-3"=>"From health records management to imaging exams, MedHub makes your daily practice easier",
     ],
     'login'=>[
         'page-title'=>'Login',

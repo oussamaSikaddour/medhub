@@ -23,14 +23,9 @@ return [
         ],
         "not-found" => "Aucun utilisateur trouvé pour le moment",
     ],
-
-
     'patients' => [
         'not-found' => 'Aucun patient trouvé pour le moment.',
     ],
-
-
-
     'examen-radios' => [
         'doctorName' => 'Nom du docteur',
         'type' => 'Type d\'examen',

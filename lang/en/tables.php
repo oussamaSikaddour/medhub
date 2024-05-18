@@ -23,9 +23,11 @@ return [
      ],
      "not-found"=>"No users Found at the moment",
     ],
+
     "patients"=>[
         "not-found"=>"No Patients Found at the moment",
     ],
+
 "examen-radios"=>[
           "doctorName"=>"Doctor Name",
           "type"=>"Exam Type",

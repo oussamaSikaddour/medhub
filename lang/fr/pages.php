@@ -2,11 +2,10 @@
 
 return [
     'landing'=> [
-        'page-title'=>"Accueil",
-        'main-title'=>'Des spécialistes à portée de main.',
-        'welcome-text'=>" Réservez facilement vos consultations avec des spécialistes via notre plateforme. Simplifiez votre accès aux soins et bénéficiez d'un parcours médical fluide et efficace. Votre santé mérite une expérience simplifiée et sans tracas",
-        "text-button-auth"=>"Mes rendez-vous",
-        "text-button-guest"=>"S'inscrire"
+        'page-title'=>"Homepage",
+          "text-1"=>"Bienvenue à MedHub : Le Futur de la Gestion Numérique des Dossiers Médicaux",
+          "text-2"=>"La Solution Intégrale pour la Prise en Charge des Patients et les Diagnostics Médicaux",
+          "text-3"=>"De la gestion des dossiers de santé aux examens d'imagerie, MedHub facilite votre pratique quotidienne",
     ],
     'login'=> [
         'page-title'=>"Connexion",
