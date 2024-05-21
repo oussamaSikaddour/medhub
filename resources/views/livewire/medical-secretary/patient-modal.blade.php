@@ -60,15 +60,21 @@
             :data="$doctorsOptions"
             :showError="true"
         />
+        <x-form.textarea
+        name="{{$form}}.address"
+        :label="__('modals.patient.address')"
+        html_id="PM-AD"
+        />
+
 
         </div>
         <div class="column">
             <x-form.input name="{{$form}}.first_phone" :label="__('modals.patient.FPhone')" type="text" html_id="PM-FP" />
             <x-form.input name="{{$form}}.second_phone" :label="__('modals.patient.SPhone')" type="text" html_id="PM-SP" />
             <x-form.textarea
-            name="{{$form}}.address"
-            :label="__('modals.patient.address')"
-            html_id="PM-AD"
+            name="{{$form}}.observations"
+            :label="__('modals.patient.observations')"
+            html_id="PM-OB"
             />
         </div>
          </div>

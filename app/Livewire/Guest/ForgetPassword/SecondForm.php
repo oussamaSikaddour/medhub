@@ -2,8 +2,9 @@
 
 namespace App\Livewire\Guest\ForgetPassword;
 
+use App\Enums\RoutesNamesEnum;
 use App\Events\Auth\EmailVerificationEvent;
-use App\Livewire\Forms\ForgetPassword\SecondForm as FGPSecondForm;
+use App\Livewire\Forms\forgetPassword\SecondForm as FGPSecondForm;
 use App\Models\User;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -22,14 +23,13 @@ class SecondForm extends Component
     {
         $this->dispatch('form-submitted');
         $response =  $this->form->save();
-       if ($response['status']) {
-        $this->reset();
-         session()->forget('forget-password-email');
-         $this->dispatch('second-step-succeeded');
-         redirect()->route($response['data']);
-         }else{
-            $this->dispatch('open-errors', [$response['error']]);
-         }
+        if ($response['status']) {
+            $this->reset();
+            $this->dispatch('second-step-succeeded');
+            redirect()->route(RoutesNamesEnum::USER_ROUTE);
+            }else{
+               $this->dispatch('open-errors', $response['errors']);
+            }
 
     }
 

@@ -41,6 +41,7 @@ return [
     "SPhone"=>"Second Phone",
     "email"=>"Email",
     "address"=>"Address",
+    "observations"=>"Observations",
     "bDate"=>"Birth Date",
     "bPlace"=>"Birth Place",
     "cardNumber"=>"National Card Number",

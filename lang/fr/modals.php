@@ -42,6 +42,7 @@ return [
             "SPhone" => "Deuxième téléphone",
             "email" => "Email",
             "address" => "Adresse",
+            "observations"=>"Observations",
             "bDate" => "Date de naissance",
             "bPlace" => "Lieu de naissance",
             "cardNumber" => "Numéro de carte nationale",

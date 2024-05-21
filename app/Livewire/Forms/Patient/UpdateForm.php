@@ -25,6 +25,7 @@ public $national_card;
 public $birth_place;
 public $birth_date;
 public $address;
+public $observations;
 public $first_phone;
 public $second_phone;
 public $doctor_id;
@@ -61,6 +62,7 @@ public $image;
             'birth_place' => 'required|string|max:255',
             'birth_date' => 'required|date|date_format:Y-m-d|after:1920-01-01|before:' . Carbon::now()->subWeek()->format('Y-m-d'),
             'address' => 'required|string',
+            'observations' => 'nullable|string',
             'first_phone' => [
                 'nullable',
                 'regex:/^(05|06|07)\d{8}$/',
@@ -94,6 +96,7 @@ public $image;
         'birth_place'=>__('modals.patient.bPlace'),
         'birth_date'=>__('modals.patient.bDate'),
         'address'=>__('modals.patient.address'),
+        'observations'=>__('modals.patient.observations'),
         'first_phone'=>__('modals.patient.FPhone'),
         'second_phone'=>__('modals.patient.SPhone'),
         'doctor_id'=>__('modals.patient.doctorId')

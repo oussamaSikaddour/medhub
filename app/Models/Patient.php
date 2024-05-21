@@ -31,6 +31,7 @@ class Patient extends Model
         "birth_place",
         "birth_date",
         "address",
+        "observations",
         "first_phone",
         "second_phone",
         "doctor_id" ,//belongs to user table

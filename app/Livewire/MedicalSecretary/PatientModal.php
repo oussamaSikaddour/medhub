@@ -83,6 +83,7 @@ class PatientModal extends Component
                        'birth_place'=>$this->patient->birth_place,
                     'birth_date'=>$this->patient->birth_date,
                     'address'=>$this->patient->address,
+                    'observations'=>$this->patient->observations,
                     'first_phone'=>$this->patient->first_phone,
                     'second_phone'=>$this->patient->second_phone,
                     'doctor_id'=>$this->patient->doctor_id,

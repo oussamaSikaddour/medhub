@@ -5,7 +5,7 @@
        <img src="{{ asset('img/bg.jpg') }}" alt="bg">
     </div>
     <div class="landing__logo">
-      <img src="{{ asset('img/med.png') }}" alt="">
+      <img src="{{ asset('img/logo.png') }}" alt="">
     </div>
     <div class="landing__content">
       <div>

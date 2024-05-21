@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('birth_place');
             $table->date('birth_date');
             $table->text('address');
+            $table->text('observations')->nullable();
             $table->string('first_phone');
             $table->string('second_phone')->nullable();
             $table->unsignedBigInteger('doctor_id');
