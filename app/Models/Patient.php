@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Patient extends Model
@@ -31,7 +32,7 @@ class Patient extends Model
         "birth_place",
         "birth_date",
         "address",
-        "observations",
+      "observations",
         "first_phone",
         "second_phone",
         "doctor_id" ,//belongs to user table
@@ -51,6 +52,10 @@ class Patient extends Model
     public function examenRadios(): HasMany
     {
         return $this->hasMany(ExamenRadio::class);
+    }
+    public function image(): MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 
 }

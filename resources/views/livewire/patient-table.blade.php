@@ -3,8 +3,8 @@
 x-on:update-patients-table.window="$wire.$refresh()"
 >
     <div class="table__header">
-
         <div>
+                <h3>@lang('tables.patients.title') :</h3>
         </div>
         <div>
             <x-form.input name="lNameFr"

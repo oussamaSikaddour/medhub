@@ -72,7 +72,7 @@ class PatientInfos extends Component
     #[Computed]
     public function patientData()
     {
-      $relations = [];
+      $relations = ['image'];
 
       if ($this->includeRadios) {
         $relations['examenRadios'] = function ($query) {

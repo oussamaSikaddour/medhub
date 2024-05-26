@@ -24,6 +24,7 @@ return [
         "not-found" => "Aucun utilisateur trouvé pour le moment",
     ],
     'patients' => [
+        'title' => 'Recherche de patients',
         'not-found' => 'Aucun patient trouvé pour le moment.',
     ],
     'examen-radios' => [

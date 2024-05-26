@@ -25,6 +25,7 @@ return [
     ],
 
     'patients' => [
+        'title' => 'بحث المرضى',
         'not-found' => 'لم يتم العثور على أي مريض في الوقت الحالي.',
     ],
     'examen-radios' => [

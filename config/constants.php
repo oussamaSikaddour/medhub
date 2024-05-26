@@ -161,6 +161,7 @@ return [
             'TEP' => 'Tomographie par émission de positons (TEP)',
             'SP' => 'Scintigraphie pulmonaire',
             'ST' => 'Scintigraphie thyroïdienne',
+            'SPECT'=>'Tomographie par émission monophotonique',
         ],
         "en" => [
             ""=> "---  Select Type  ---",
@@ -169,14 +170,16 @@ return [
             'TEP' => 'Positron emission tomography (PET)',
             'SP' => 'Pulmonary scintigraphy',
             'ST' => 'Thyroid scintigraphy',
+            "SPECT"=>'Single-photon emission computed tomography'
         ],
         "ar" => [
              ""=> "---  اختر النوع  ---",
-            'SO' => 'التصوير النفسي للعظام',
-            'SC' => 'التصوير النفسي للقلب',
-            'TEP' => 'التصوير النفسي بالإيجابية الإلكترونية (PET)',
-            'SP' => 'التصوير النفسي للرئة',
-            'ST' => 'التصوير النفسي للغدة الدرقية',
+            'SO' => 'التصوير  الومضي  للعظام',
+            'SC' => 'التصوير  الومضي  للقلب',
+            'TEP' => 'التصوير  الومضي بالإصدار البوزيتروني  (PET)',
+            'SP' => 'التصوير  الومضي  للرئة',
+            'ST' => 'التصوير  الومضي  للغدة الدرقية',
+            'SPECT'=>'التصوير المقطعي المحوسب بالفوتونات المفردة'
         ],
     ],
 
